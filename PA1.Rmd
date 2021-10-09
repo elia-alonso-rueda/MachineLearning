@@ -1,0 +1,40 @@
+---
+title: "Practical Application 1"
+author: "Elia Alonso Rueda"
+date: "OCTOBER 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**NON PROBABILISTIC SUPERVISED CLASSIFICATION**
+
+*VISUALIZATION*
+
+Importation of the data and visualization of the original data set. I have changed the columns names in order to find it easier to understand.
+```{r}
+
+#Read my csv data file
+library(readr)
+ObesityDataSet <- read_csv("C:/Users/Elia/Desktop/master/MACHINE LEARNING/PA1/DATASET/ObesityDataSet.csv")
+
+#Give the columns these names
+colnames(ObesityDataSet)<-c("GEN","AGE", "HEIGHT", "WEIGHT", "FHWO","FAVC","FCVC",
+"NCP", "CAEC", "SMOKE","CH2O","SCC",
+"FAF","TUE","CALC", "MTRANS", "OL")
+
+#Visualization
+View(ObesityDataSet)
+summary(ObesityDataSet)
+
+```
+
+Saving the new data set
+```{r }
+
+newObesityDataSet <- ObesityDataSet
+write.table(newObesityDataSet, "newObesityDataSet.csv", sep = ";", quote = F, row.names = F)
+
+```
